@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    font-family: 'Open Sans', sans-serif;
+    margin: 40px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(88, 87, 87);
+
+}
+
+.icons a {
+    color: rgb(88, 87, 87);
+    font-size: 20px;
+    margin: 10px;
+    text-decoration: none;
+
+}
+
+.profile {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(240, 129, 98);
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.pic {
+    background-color: rgb(250, 164, 111);
+    width: 200px;
+    margin-left: -70px;
+}
+
+img {
+    padding: 10px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: -10px;
+
+}
+
+.add {
+    width: 200px;
+}
+
+.add i {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.details {
+
+    width: 550px;
+    font-size: 19px;
+}
+
+.details p {
+    padding: 10px 0;
+    color: rgb(52, 53, 53);
+}
+
+.details h3 {
+    margin-top: 10px;
+    margin-left: 4px;
+}
+
+.content {
+    padding: 40px;
+    background-color: rgb(249, 158, 135);
+    display: flex;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.add {
+
+    width: 280px;
+}
+
+/* .content h2{
+    font-family: 'Poppins', sans-serif;
+} */
+
+.part {
+    justify-content: start;
+    margin: 10px;
+    line-height: 1.4;
+}
+
+.part1 {
+    margin-left: 80px;
+    line-height: 1.5;
+
+}
+
+.part2 {
+    margin-left: 190px;
+    line-height: 1.5;
+}
+
+.wrapper {
+    margin: 10px;
+}
+
+hr {
+    width: 450px;
+
+}
