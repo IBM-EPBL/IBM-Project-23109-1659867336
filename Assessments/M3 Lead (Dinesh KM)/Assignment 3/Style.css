@@ -1,0 +1,30 @@
+* {
+ box-sizing: border-box;
+ 
+}
+
+
+
+.col{
+ float: left;
+ width: 450.3;
+ padding: 5px;
+}
+.row::after{
+ content: "";
+ clear: both;
+ display: table;
+}
+img:hover{
+ border: 5px;
+ border-radius: 70%;
+ padding: 5px;
+ border-color: black;
+ box-shadow: inherit;
+
+}
+img{
+ margin-left: 50px;
+ align-items: center;
+ /* border-radius: 50%; */
+}
