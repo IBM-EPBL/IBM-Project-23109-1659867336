@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mt-5">EXPENSE BREAKDOWN</h3><br>
+            <div class="card shadow bb-2 bg-dark rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6" style="color: aliceblue;"><b>CATEGORY</b></div>
+                        <div class="col-md-6" style="color: aliceblue;">TOTAL EXPENSE</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Household</div>
+                        <div id="thousehold" class="col-md-6">{{household}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Food</div>
+                        <div id="tfood" class="col-md-6">{{food}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Entertainment</div>
+                        <div id="tentertainment" class="col-md-6">{{entertainment}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Business</div>
+                        <div id="tbusiness" class="col-md-6">{{business}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Other</div>
+                        <div id="tother" class="col-md-6">{{other}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow bb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">TOTAL</div>
+                        <div class="col-md-6">{{total}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="mt-5">EXPENSE CHART</h3>
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <script>
+                let household = document.getElementById('thousehold').innerHTML
+                let food = document.getElementById('tfood').innerHTML
+                let entertainment = document.getElementById('tentertainment').innerHTML
+                let business = document.getElementById('tbusiness').innerHTML
+                let other = document.getElementById('tother').innerHTML
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Household', 'Food', 'Entertainment', 'Business', 'Other'],
+                        datasets: [{
+                            label: 'Expense amount',
+                            data: [household, food, entertainment, business, other],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

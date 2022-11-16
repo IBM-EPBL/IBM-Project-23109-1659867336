@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Expense Tracker - Dashboard</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <h3 class="mt-5">Expenses</h3>
+    {% for expense in expenses %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            {{expense.date}}
+                        </div>
+                        <div class="col-md-2">
+                            {{expense.expensename}}
+                        </div>
+                        <div class="col-md-2">
+                            {{expense.amount}}
+                        </div>
+                        <div class="col-md-2">
+                            <span class="badge badge-primary">{{expense.category}}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="update/{{expense.id}}" class="btn btn-sm btn-success">Edit</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="delete/{{expense.id}}" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+</body>
+
+</html>
