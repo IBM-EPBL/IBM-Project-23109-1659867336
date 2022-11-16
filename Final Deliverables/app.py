@@ -90,6 +90,15 @@ def edit():
     return redirect('/expenses')
 
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    # Database operation
+    expense = Expense.query.filter_by(id=id).first()
+    db.session.delete(expense)
+    db.session.commit()
+    return redirect('/expenses')
+
+
 @app.route('/graph')
 def graph():
     expenses = Expense.query.all()
