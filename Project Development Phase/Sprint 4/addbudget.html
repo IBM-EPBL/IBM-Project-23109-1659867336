@@ -1,0 +1,19 @@
+{% extends 'base.html' %}  
+{% block body %}  
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="mt-5" style="margin-left: 200px;">Add Budget :</h3>
+            <form method='post' action='/addbudget/{{id}}' style="margin-left: 200px;">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input class="form-control" type="text" name="budget" id="budget" value="{{budget}}">
+                </div>
+                <input class="btn btn-danger" type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
