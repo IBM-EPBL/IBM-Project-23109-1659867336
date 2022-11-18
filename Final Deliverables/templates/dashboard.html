@@ -6,41 +6,57 @@
 
 
 {% block body %}
-<div class="container">
-    <h3 class="mt-5">Expenses</h3>
-    {% for expense in expenses %}
-    <div class="row">
+<div class="container" >
+    <h3 class="mt-5">Hello {{name}} , Your Expenses</h3>
+    <div class="d-flex justify-content-between">
+        
+        <h3 class="mt-5">Budget = {{budget}} </h3>
+        <h3 class="mt-5">Total spent = {{esum}}</h3>
+
+        <h3 class="mt-5">Remaining = {{rem}}</h3>
+    </div>
+    {% for key,value in ex_list.items() %}
+    <div class="row" >
         <div class="col-md-12">
             <div class="card shadow mb-2 bg-white rounded">
-                <div class="card-body">
+                <div class="card-body" style="background: linear-gradient(#FFEBEE,#FAFAFA)">
                     <div class="row">
                         <div class="col-md-2">
-                            {{expense.date}}
+                            <a href="expense/update/{{value['ID']}}" class="btn btn-sm btn-success">Edit</a>
                         </div>
                         <div class="col-md-2">
-                            {{expense.expensename}}
+                            <a href="expense/delete/{{value['ID']}}" class="btn btn-sm btn-danger">Delete</a>
                         </div>
-                        <div class="col-md-2">
-                            {{expense.amount}}
+                        <div class="col-md-2" style="color: #000000">
+                            {{value['EDATE']}}
                         </div>
-                        <div class="col-md-2">
-                            <span class="badge badge-primary">{{expense.category}}</span>
+                        <div class="col-md-2"style="color: #000000">
+                            {{value['ECATEGORY']}}
                         </div>
-                        <div class="col-md-2">
-                            <a href="update/{{expense.id}}" class="btn btn-sm btn-success">Edit</a>
+                        
+                        <div class="col-md-2"style="color: #000000">
+                            {{value['ENAME']}}
                         </div>
-                        <div class="col-md-2">
-                            <a href="delete/{{expense.id}}" class="btn btn-sm btn-danger">Delete</a>
+                        <div class="col-md-2"style="color: #000000">
+                            र {{value['EAMOUNT']}} 
                         </div>
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
+    <div class="d-flex justify-content-between">
+        <h4 class="mt-5">Spent % = {{per}} %    </h3>
+        <h4 class="mt-5">Total expense = {{esum}}</h3>
+    </div>
+    
 </div>
 
 
-{% endblock %}
-</body>
 
+</body>
+{% endblock %}
 </html>

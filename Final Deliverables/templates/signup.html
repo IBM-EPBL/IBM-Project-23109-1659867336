@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>SignUp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Section: Design Block -->
-<section class="background-radial-gradient overflow-hidden">
+<section class="background-radial-gradient overflow-hidden vh-100">
     <style>
       .background-radial-gradient {
         background-color: hsl(218, 41%, 15%);
@@ -76,22 +76,22 @@
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
-              <form onsubmit="return validate()">
+              <form onsubmit="return validate()" action="/signup" method="POST">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="form-outline mb-4">
-                    <input type="text" id="form3Example1" placeholder="Enter your name" class="form-control" required/>
+                    <input type="text" id="form3Example1" placeholder="Enter your name" class="form-control" name="uname" required/>
                     <label class="form-label" for="form3Example1">Name</label>
                 </div>
   
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" placeholder="Enter your email address" class="form-control" required/>
+                  <input type="email" id="form3Example3" placeholder="Enter your email address" class="form-control" name="email" required/>
                   <label class="form-label" for="form3Example3">Email</label>
                 </div>
   
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="pass" placeholder="Enter a password" class="form-control" required/>
+                  <input type="password" id="pass" placeholder="Enter a password" class="form-control" name="pass" required/>
                   <label class="form-label" for="pass">Password</label>
                 </div>
 
@@ -107,7 +107,7 @@
   
                 <!-- Register buttons -->
                 <div class="text-center">
-                  <a href="/login">Already have an account? Log in here</a>
+                  <a href="/signin">Already have an account? Log in here</a>
                 </div>
               </form>
             </div>
