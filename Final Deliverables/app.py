@@ -32,18 +32,21 @@ def dashboard():
     # Fetch the list of expenses from db
     sql = 'select * from expenses where cid = '+str(session['id'])
     stmt = ibm_db.exec_immediate(connection, sql)   
-    
+    flag=0
     expense_list = {}
     i=0
     while (res:=ibm_db.fetch_assoc(stmt)) != False:
         expense_list[i] = res
+        flag=1
         i+=1
     # go to homepage if signed in
     sql='select sum(eamount) from expenses where cid= '+str(session['id'])
     stmt = ibm_db.exec_immediate(connection, sql)
     sum_dict= ibm_db.fetch_assoc(stmt)
+    sum=0.0  
     sum = sum_dict['1']
-
+    if flag !=1:
+        sum=0.0
     sql='select budget from users where id= '+str(session['id'])
     stmt = ibm_db.exec_immediate(connection, sql)
     budget_list= ibm_db.fetch_assoc(stmt)
@@ -51,8 +54,9 @@ def dashboard():
     for key,value in budget_list.items():
         pass
     rem = value - sum
-
-    per = (sum/value)*100
+    per=0
+    if value !=0:
+        per = (sum/value)*100
     return render_template('dashboard.html', ex_list=expense_list,esum=sum,budget=value,rem=rem,per=per,name=session['username'])
 
 
